@@ -1,0 +1,13 @@
+default: main
+
+busca.o: busca.c busca.h
+	gcc -c busca.c - busca.o
+
+main.o: main.c
+	gcc -c main.c -o main.o
+
+main: main.o busca.o
+	gcc *.o -o main.e
+
+clean:
+	rm *.o main.e
