@@ -2,11 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "ordenacao.h"
-#define PART_TIME 100
-
-void initArray(int array[TAM_MAX], int size);
-void cloneArray(int arrayA[TAM_MAX], int arrayB[TAM_MAX], int size);
-void printArray(int array[TAM_MAX], int size);
+#include "Geral.h"
 
 int main(){
     int arrayIns[TAM_MAX];
@@ -35,25 +31,4 @@ int main(){
     printf("Tempo em segundos: %f\n", ((double) (shellEnd - shellStart) / CLOCKS_PER_SEC));
 
     return 0;
-}
-
-void initArray(int array[TAM_MAX], int size){
-    for(int i = 0; i < size; i++){
-        srand(clock());
-        array[i] = (rand() % 999) + 1;
-    }
-}
-
-void cloneArray(int arrayA[TAM_MAX], int arrayB[TAM_MAX], int size){
-    for(int i = 0; i < size; i++){
-        arrayB[i] = arrayA[i];
-    }
-}
-
-void printArray(int array[TAM_MAX], int size){
-    for(int i = 0; i < size; i++){
-        printf("%d ", array[i]);
-        (i+1) % PART_TIME == 0 ? printf("\n"): printf("");
-    }
-    printf("\n");
 }
