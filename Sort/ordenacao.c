@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "ordenacao.h"
 
 
@@ -25,13 +26,13 @@ void shellSort(int array[TAM_MAX], int size){
             int j = i - gap;
 
             while(j >= 0 && array[j] > key){
-            array[j+gap] = array[j];
-            j -= gap;
+                array[j+gap] = array[j];
+                j -= gap;
             }
 
             array[j+gap] = key;
-            gap = gap / 2;
         }
+        gap = gap / 2;
     }
 }
 

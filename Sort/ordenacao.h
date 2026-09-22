@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 #define TAM_MAX 1000
 
 void insertionSort(int array[TAM_MAX], int size);
