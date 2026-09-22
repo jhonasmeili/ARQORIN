@@ -52,3 +52,38 @@ void shellSort(int array[TAM_MAX], int size){
     }
 }
 
+void heapSort(int array[TAM_MAX], int size){
+    buildHeap(array, size);
+
+    for(int i = size -1; i >= 1; i--){
+        int aux = array[0];
+        array[0] = array[i];
+        array[i] = aux;
+
+        heapify(array, i, 0);
+    }
+}
+
+void buildHeap(int array[TAM_MAX], int size){
+    for(int i = (size/2) - 1; i >= 0; i--){
+        heapify(array, size, i);
+    }
+}
+
+void heapify(int array[TAM_MAX], int size, int i){
+    int maior = i;
+    int esquerda = 2*i +1;
+    int direita = 2*i +2;
+
+    if(esquerda < size && array[esquerda] > array[maior]) maior = esquerda;
+    if(direita < size && array[direita] > array[maior]) maior = direita;
+
+    if(maior != i){
+        int aux = array[i];
+        array[i] = array[maior];
+        array[maior] = aux;
+
+        heapify(array, size, maior);
+    }
+}
+

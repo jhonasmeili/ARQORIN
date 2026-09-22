@@ -10,6 +10,12 @@ void initArray(int array[TAM_MAX], int size){
     }
 }
 
+void worstArray(int array[TAM_MAX], int size){
+    for(int i = 0; i < size; i++){
+        array[i] = size - i;
+    }
+}
+
 void cloneArray(int arrayA[TAM_MAX], int arrayB[TAM_MAX], int size){
     for(int i = 0; i < size; i++){
         arrayB[i] = arrayA[i];
