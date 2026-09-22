@@ -17,6 +17,22 @@ void insertionSort(int array[TAM_MAX], int size){
     }
 }
 
+void selectionSort(int array[TAM_MAX], int size){
+    for(int i = 0; i <= size - 2; i++){
+        int posMenor = i;
+
+        for(int j = i+1; j <= size - 1; j++){
+            if(array[j] < array[posMenor]) posMenor = j;
+        }
+
+        if(posMenor != i){
+            int aux = array[i];
+            array[i] = array[posMenor];
+            array[posMenor] = aux;
+        }
+    }
+}
+
 void shellSort(int array[TAM_MAX], int size){
     int gap = size / 2;
 
