@@ -87,3 +87,33 @@ void heapify(int array[TAM_MAX], int size, int i){
     }
 }
 
+void quickSort(int array[TAM_MAX], int start, int end){
+    if(start < end){
+        int posPivo = partition(array, start, end);
+
+        quickSort(array, start, posPivo -1);
+        quickSort(array, posPivo + 1, end);
+    }
+}
+
+int partition(int array[TAM_MAX], int start, int end){
+    int pivo = array[end];
+    int i = start - 1;
+
+    for(int j = start; j <= end-1; j++){
+        if(array[j] < pivo){
+            i++;
+
+            int aux = array[i];
+            array[i] = array[j];
+            array[j] =  aux;
+        }
+    }
+
+    int aux = array[i+1];
+    array[i+1] = array[end];
+    array[end] = aux;
+
+    return i+1;
+}
+
